@@ -122,6 +122,85 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &5479694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5479695}
+  - component: {fileID: 5479697}
+  - component: {fileID: 5479696}
+  m_Layer: 5
+  m_Name: Text (Legacy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5479695
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5479694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1694554012}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5479696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5479694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &5479697
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5479694}
+  m_CullTransparentMesh: 1
 --- !u!1 &29501886
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 115631410}
+  - component: {fileID: 115631411}
   m_Layer: 5
   m_Name: Wave 2
   m_TagString: Wave2
@@ -229,6 +309,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1250967741}
   - {fileID: 179532084}
   - {fileID: 266697420}
   m_Father: {fileID: 1694554012}
@@ -238,6 +319,35 @@ RectTransform:
   m_AnchoredPosition: {x: -7.5, y: -16}
   m_SizeDelta: {x: 515, y: 748}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &115631411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115631409}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873e83d68d5038448a4375c1157f6801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charTextField:
+  - {fileID: 1579205710}
+  - {fileID: 2068108005}
+  - {fileID: 440677380}
+  - {fileID: 1430102772}
+  uiMessage: {fileID: 151469162}
+  buttons:
+  - {fileID: 2046508287}
+  - {fileID: 1467687831}
+  - {fileID: 607012773}
+  - {fileID: 1610268126}
+  normalColor: {r: 1, g: 1, b: 1, a: 0}
+  pressedColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0}
+  targetWord: MARS
+  playerGuess: 
+  isPuzzleComplete: 0
+  waveTransitionManager: {fileID: 0}
 --- !u!1 &151469161
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,7 +923,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554991}
+      - m_Target: {fileID: 1422171316}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049287}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -946,7 +1068,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554991}
+      - m_Target: {fileID: 1422171316}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049287}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -1079,7 +1213,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554988}
+      - m_Target: {fileID: 576297581}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049289}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -1212,7 +1358,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554991}
+      - m_Target: {fileID: 1422171316}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049287}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -1345,7 +1503,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554991}
+      - m_Target: {fileID: 1422171316}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049287}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -1429,8 +1599,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -48}
-  m_SizeDelta: {x: 123.97, y: 133.206}
+  m_AnchoredPosition: {x: -0.0015259, y: -0.00099182}
+  m_SizeDelta: {x: 80.003, y: 89.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &440677380
 MonoBehaviour:
@@ -1459,7 +1629,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 80
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1557,7 +1727,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554991}
+      - m_Target: {fileID: 1422171316}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049287}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -1641,8 +1823,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -48}
-  m_SizeDelta: {x: 123.97, y: 133.206}
+  m_AnchoredPosition: {x: 0, y: -0.00098419}
+  m_SizeDelta: {x: 79.997, y: 89.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &470846255
 MonoBehaviour:
@@ -1671,7 +1853,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 80
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1686,6 +1868,111 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470846253}
   m_CullTransparentMesh: 1
+--- !u!1001 &495875865
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1422171315}
+    m_Modifications:
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 724.663
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 99.637
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 520
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349562997289061746, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_Text
+      value: A place to live in
+      objectReference: {fileID: 0}
+    - target: {fileID: 6445744229529524711, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_Name
+      value: Puzzle Hint 3 (Text)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6445744229529524711, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
 --- !u!1 &505611085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,7 +2056,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554988}
+      - m_Target: {fileID: 576297581}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049289}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -2000,8 +2299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee92f63d652f534fa428baa129ef947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1557554988}
-  wavesGameObject:
+  gameManager: {fileID: 1061049289}
+  waves:
   - {fileID: 576297579}
   - {fileID: 115631409}
   - {fileID: 1422171314}
@@ -2014,6 +2313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 576297580}
+  - component: {fileID: 576297581}
   m_Layer: 5
   m_Name: Wave 1
   m_TagString: Wave1
@@ -2033,6 +2333,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1703640586}
   - {fileID: 609968610}
   - {fileID: 954038492}
   m_Father: {fileID: 1694554012}
@@ -2042,6 +2343,35 @@ RectTransform:
   m_AnchoredPosition: {x: -7.5, y: -16}
   m_SizeDelta: {x: 515, y: 748}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &576297581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576297579}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873e83d68d5038448a4375c1157f6801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charTextField:
+  - {fileID: 219173547}
+  - {fileID: 1763948807}
+  - {fileID: 470846255}
+  - {fileID: 1827783512}
+  uiMessage: {fileID: 151469162}
+  buttons:
+  - {fileID: 1652023442}
+  - {fileID: 505611087}
+  - {fileID: 369864858}
+  - {fileID: 1554286331}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  pressedColor: {r: 0.7921569, g: 0.7921569, b: 0.7921569, a: 1}
+  targetWord: WORD
+  playerGuess: 
+  isPuzzleComplete: 0
+  waveTransitionManager: {fileID: 0}
 --- !u!1 &607012771
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,7 +2455,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554989}
+      - m_Target: {fileID: 115631411}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049288}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -2462,6 +2804,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 179532084}
     m_Modifications:
+    - target: {fileID: 4500665871563554173, guid: 972d626a932f7294c848ea883a8618ff, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7445996967054908085, guid: 972d626a932f7294c848ea883a8618ff, type: 3}
       propertyPath: m_Name
       value: TextField1
@@ -3170,8 +3516,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -48}
-  m_SizeDelta: {x: 123.97, y: 133.206}
+  m_AnchoredPosition: {x: -0.0015249, y: -0.00099182}
+  m_SizeDelta: {x: 79.997, y: 89.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &982262705
 MonoBehaviour:
@@ -3200,7 +3546,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 80
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -3298,7 +3644,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554991}
+      - m_Target: {fileID: 1422171316}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049287}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -3545,6 +3903,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034046133}
   m_CullTransparentMesh: 1
+--- !u!114 &1061049287 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8818416739541743349, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
+  m_PrefabInstance: {fileID: 6996196360292646318}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f233293bdd6204da8c0ed6c1be1a43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1061049288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4637456096961022031, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
+  m_PrefabInstance: {fileID: 6996196360292646318}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09f04b8b28cac348b7a78e91856a9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1061049289 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 57875035240862131, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
+  m_PrefabInstance: {fileID: 6996196360292646318}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c936e8a1d90e3f40a204dea56af589b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1080146752
 GameObject:
   m_ObjectHideFlags: 0
@@ -3699,8 +4090,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -48}
-  m_SizeDelta: {x: 123.97, y: 133.206}
+  m_AnchoredPosition: {x: 0.0014629, y: -0.00099182}
+  m_SizeDelta: {x: 80.003, y: 89.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1150865628
 MonoBehaviour:
@@ -3729,7 +4120,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 80
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -3899,6 +4290,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249553233}
   m_CullTransparentMesh: 1
+--- !u!224 &1250967741 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+  m_PrefabInstance: {fileID: 3381947663984334518}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1251886434 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+  m_PrefabInstance: {fileID: 495875865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1291225453
 GameObject:
   m_ObjectHideFlags: 0
@@ -4012,8 +4413,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -48}
-  m_SizeDelta: {x: 123.97, y: 133.206}
+  m_AnchoredPosition: {x: -0.0015259, y: -0.00099182}
+  m_SizeDelta: {x: 80.003, y: 89.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1324301779
 MonoBehaviour:
@@ -4042,7 +4443,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 80
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -4261,7 +4662,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554991}
+      - m_Target: {fileID: 1422171316}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049287}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -4320,6 +4733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1422171315}
+  - component: {fileID: 1422171316}
   m_Layer: 5
   m_Name: Wave 3
   m_TagString: Wave3
@@ -4339,6 +4753,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1251886434}
   - {fileID: 1724099042}
   - {fileID: 1080146753}
   m_Father: {fileID: 1694554012}
@@ -4348,6 +4763,41 @@ RectTransform:
   m_AnchoredPosition: {x: -7.5, y: -16}
   m_SizeDelta: {x: 515, y: 748}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1422171316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422171314}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873e83d68d5038448a4375c1157f6801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charTextField:
+  - {fileID: 177703303}
+  - {fileID: 982262705}
+  - {fileID: 1324301779}
+  - {fileID: 1150865628}
+  - {fileID: 1725533245}
+  uiMessage: {fileID: 151469162}
+  buttons:
+  - {fileID: 409187982}
+  - {fileID: 982774679}
+  - {fileID: 470155964}
+  - {fileID: 1779239122}
+  - {fileID: 1739467252}
+  - {fileID: 435472139}
+  - {fileID: 363826891}
+  - {fileID: 342085448}
+  - {fileID: 1391845602}
+  normalColor: {r: 1, g: 1, b: 1, a: 0}
+  pressedColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0}
+  targetWord: HOUSE
+  playerGuess: 
+  isPuzzleComplete: 0
+  waveTransitionManager: {fileID: 0}
 --- !u!1 &1430102770
 GameObject:
   m_ObjectHideFlags: 0
@@ -4382,8 +4832,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -48}
-  m_SizeDelta: {x: 123.97, y: 133.206}
+  m_AnchoredPosition: {x: -0.0014763, y: -0.00099182}
+  m_SizeDelta: {x: 79.997, y: 89.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1430102772
 MonoBehaviour:
@@ -4412,7 +4862,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 80
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -4510,7 +4960,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554989}
+      - m_Target: {fileID: 115631411}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049288}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -4722,7 +5184,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554988}
+      - m_Target: {fileID: 576297581}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049289}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -4772,39 +5246,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554286329}
   m_CullTransparentMesh: 1
---- !u!114 &1557554988 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 57875035240862131, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
-  m_PrefabInstance: {fileID: 6996196360292646318}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c936e8a1d90e3f40a204dea56af589b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1557554989 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4637456096961022031, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
-  m_PrefabInstance: {fileID: 6996196360292646318}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b09f04b8b28cac348b7a78e91856a9c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1557554991 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8818416739541743349, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
-  m_PrefabInstance: {fileID: 6996196360292646318}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5f233293bdd6204da8c0ed6c1be1a43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1566929336
 GameObject:
   m_ObjectHideFlags: 0
@@ -5062,7 +5503,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554989}
+      - m_Target: {fileID: 115631411}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049288}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -5195,7 +5648,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554988}
+      - m_Target: {fileID: 576297581}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049289}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -5343,6 +5808,7 @@ RectTransform:
   - {fileID: 115631410}
   - {fileID: 1422171315}
   - {fileID: 151469164}
+  - {fileID: 5479695}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5350,6 +5816,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!224 &1703640586 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+  m_PrefabInstance: {fileID: 1382229035247029984}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1706194796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5358,6 +5829,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1724099042}
     m_Modifications:
+    - target: {fileID: 4500665871563554173, guid: 972d626a932f7294c848ea883a8618ff, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7445996967054908085, guid: 972d626a932f7294c848ea883a8618ff, type: 3}
       propertyPath: m_Name
       value: TextField1
@@ -5676,8 +6151,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -48}
-  m_SizeDelta: {x: 123.97, y: 133.206}
+  m_AnchoredPosition: {x: -0.0015259, y: -0.00099182}
+  m_SizeDelta: {x: 80.003, y: 89.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1725533245
 MonoBehaviour:
@@ -5706,7 +6181,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 80
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -5804,7 +6279,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554991}
+      - m_Target: {fileID: 1422171316}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049287}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -5967,8 +6454,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -48}
-  m_SizeDelta: {x: 123.97, y: 133.206}
+  m_AnchoredPosition: {x: 0, y: -0.00098419}
+  m_SizeDelta: {x: 80, y: 89.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1763948807
 MonoBehaviour:
@@ -5997,7 +6484,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 80
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -6095,7 +6582,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554991}
+      - m_Target: {fileID: 1422171316}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049287}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -6258,8 +6757,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -48}
-  m_SizeDelta: {x: 123.97, y: 133.206}
+  m_AnchoredPosition: {x: 0, y: -0.00098419}
+  m_SizeDelta: {x: 79.997, y: 89.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1827783512
 MonoBehaviour:
@@ -6288,7 +6787,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 80
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -6693,7 +7192,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557554989}
+      - m_Target: {fileID: 115631411}
+        m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1061049288}
         m_TargetAssemblyTypeName: PuzzleGameManager, Assembly-CSharp
         m_MethodName: OnButtonClicked
         m_Mode: 3
@@ -6777,8 +7288,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -48}
-  m_SizeDelta: {x: 123.97, y: 133.206}
+  m_AnchoredPosition: {x: -0.0015259, y: -0.00099182}
+  m_SizeDelta: {x: 80.003, y: 89.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2068108005
 MonoBehaviour:
@@ -6807,7 +7318,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 80
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -6822,6 +7333,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068108003}
   m_CullTransparentMesh: 1
+--- !u!1001 &1382229035247029984
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 576297580}
+    m_Modifications:
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 724.663
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 99.637
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 520
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6445744229529524711, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_Name
+      value: Puzzle Hint 1 (Text)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
 --- !u!1001 &2978290456249017249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6830,6 +7438,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 609968610}
     m_Modifications:
+    - target: {fileID: 4500665871563554173, guid: 972d626a932f7294c848ea883a8618ff, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7445996967054908085, guid: 972d626a932f7294c848ea883a8618ff, type: 3}
       propertyPath: m_Name
       value: TextField1
@@ -6919,6 +7531,103 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 972d626a932f7294c848ea883a8618ff, type: 3}
+--- !u!1001 &3381947663984334518
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 115631410}
+    m_Modifications:
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 836.487
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 99.637
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 520
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217417493095025939, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6445744229529524711, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
+      propertyPath: m_Name
+      value: Puzzle Hint 2 (Text)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bb0e8a7d1d9cbd147841199e832991a9, type: 3}
 --- !u!1001 &6996196360292646318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6935,6 +7644,10 @@ PrefabInstance:
       propertyPath: uiMessage
       value: 
       objectReference: {fileID: 151469162}
+    - target: {fileID: 57875035240862131, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
+      propertyPath: waveManager
+      value: 
+      objectReference: {fileID: 554923485}
     - target: {fileID: 57875035240862131, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
       propertyPath: scriptManager
       value: 
@@ -6955,6 +7668,10 @@ PrefabInstance:
       propertyPath: buttons.Array.data[3]
       value: 
       objectReference: {fileID: 1554286331}
+    - target: {fileID: 57875035240862131, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
+      propertyPath: waveTransitionManager
+      value: 
+      objectReference: {fileID: 554923485}
     - target: {fileID: 57875035240862131, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
       propertyPath: charTextField.Array.data[0]
       value: 
@@ -6980,6 +7697,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 151469162}
     - target: {fileID: 4637456096961022031, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
+      propertyPath: waveManager
+      value: 
+      objectReference: {fileID: 554923485}
+    - target: {fileID: 4637456096961022031, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
       propertyPath: scriptManager
       value: 
       objectReference: {fileID: 554923485}
@@ -6999,6 +7720,10 @@ PrefabInstance:
       propertyPath: buttons.Array.data[3]
       value: 
       objectReference: {fileID: 1610268126}
+    - target: {fileID: 4637456096961022031, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
+      propertyPath: waveTransitionManager
+      value: 
+      objectReference: {fileID: 554923485}
     - target: {fileID: 4637456096961022031, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
       propertyPath: charTextField.Array.data[0]
       value: 
@@ -7056,9 +7781,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8818416739541743349, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8818416739541743349, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
       propertyPath: uiMessage
       value: 
       objectReference: {fileID: 151469162}
+    - target: {fileID: 8818416739541743349, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
+      propertyPath: waveManager
+      value: 
+      objectReference: {fileID: 554923485}
     - target: {fileID: 8818416739541743349, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
       propertyPath: scriptManager
       value: 
@@ -7099,6 +7832,10 @@ PrefabInstance:
       propertyPath: buttons.Array.data[8]
       value: 
       objectReference: {fileID: 1391845602}
+    - target: {fileID: 8818416739541743349, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
+      propertyPath: waveTransitionManager
+      value: 
+      objectReference: {fileID: 554923485}
     - target: {fileID: 8818416739541743349, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
       propertyPath: charTextField.Array.data[0]
       value: 

@@ -17,14 +17,18 @@ public class PuzzleGameManager : MonoBehaviour
 
     protected bool[] isButtonPressed;
     public bool isPuzzleComplete = false;
+    public TransitionManager waveTransitionManager;
 
     protected void Start()
     {
         isButtonPressed = new bool[buttons.Length];
 
-        foreach (Button button in buttons)
+        if (buttons != null && buttons.Length > 0)
         {
-            button.GetComponent<Image>().color = normalColor;
+            foreach (Button button in buttons)
+            {
+                button.GetComponent<Image>().color = normalColor;
+            }
         }
 
     }
@@ -71,17 +75,17 @@ public class PuzzleGameManager : MonoBehaviour
                 //CheckGuess();
                 StartCoroutine(CheckGuessWithDelay());
 
-                //if (playerGuess == targetWord)
-                //{
-                //    isPuzzleComplete = true;
-                //    Debug.Log("Puzzle Completed: " + isPuzzleComplete);
+                if (playerGuess == targetWord)
+                {
+                    isPuzzleComplete = true;
+                    Debug.Log("Puzzle Completed: " + isPuzzleComplete);
 
-                //}
-                //else
-                //{
-                //    isPuzzleComplete = false;
-                //    Debug.Log("Puzzle Completed: " + isPuzzleComplete);
-                //}
+                }
+                else
+                {
+                    isPuzzleComplete = false;
+                    Debug.Log("Puzzle Completed: " + isPuzzleComplete);
+                }
 
             }
         }
@@ -119,8 +123,8 @@ public class PuzzleGameManager : MonoBehaviour
             {
                 uiMessage.text = "Correct!";
                 uiMessage.gameObject.SetActive(true);
-                isPuzzleComplete = true;
-                Debug.Log("Puzzle Completed: " + isPuzzleComplete);
+
+                waveTransitionManager.CompleteCurrentWave();
 
             }
             else
@@ -128,8 +132,7 @@ public class PuzzleGameManager : MonoBehaviour
                 uiMessage.text = "Incorrect!";
                 uiMessage.gameObject.SetActive(true);
                 isPuzzleComplete = false;
-                Debug.Log("Puzzle Completed: " + isPuzzleComplete);
-                //Debug.Log(isPuzzleComplete);
+
 
                 ResetGame();
                 UnselectLetter(i);
