@@ -126,6 +126,7 @@ public class PuzzleGameManager : MonoBehaviour
 
                 waveTransitionManager.CompleteCurrentWave();
 
+
             }
             else
             {
