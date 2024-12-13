@@ -1,0 +1,16 @@
+{
+  "waves": [
+    {
+      "waveIndex": 0,
+      "targetWord": "WORD"
+    },
+    {
+      "waveIndex": 1,
+      "targetWord": "MARS"
+    },
+    {
+      "waveIndex": 2,
+      "targetWord": "HOUSE"
+    }
+  ]
+}

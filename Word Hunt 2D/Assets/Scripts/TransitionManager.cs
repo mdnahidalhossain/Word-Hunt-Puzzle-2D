@@ -6,16 +6,18 @@ using static Unity.Burst.Intrinsics.X86;
 
 public class TransitionManager : MonoBehaviour
 {
-    public PuzzleGameManager gameManager;
-    public GameObject[] waves;
+    [SerializeField] private PuzzleGameManager gameManager;
+    [SerializeField] private GameObject[] waves;
+
     private int currentWaveIndex = 0;
     private bool isTransitioning = false;
 
-    public GameObject progressBarFill; // Reference to the progress bar fill object
-    public GameObject[] whiteCheckPoints;
-    public GameObject[] greyCheckPoints;
-    public GameObject[] greenCheckPoints;
-    public float progressBarFillTime = 2f;
+    [SerializeField] private GameObject progressBarFill; // Reference to the progress bar fill object
+    [SerializeField] private GameObject levelCompletionMessage;
+    [SerializeField] private GameObject[] whiteCheckPoints;
+    [SerializeField] private GameObject[] greyCheckPoints;
+    [SerializeField] private GameObject[] greenCheckPoints; 
+    [SerializeField] private float progressBarFillTime = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -41,9 +43,13 @@ public class TransitionManager : MonoBehaviour
             return;
         }
 
+
         if (currentWaveIndex < waves.Length)
         {
+            // Increment the wave index to fetch the correct target word for the next wave
+            
             StartCoroutine(TransitionToNextWave());
+
         }
         else
         {
@@ -79,26 +85,39 @@ public class TransitionManager : MonoBehaviour
             }
         }
 
-        // Activate the next wave
+        //// Activate the next wave
+        Debug.Log($"Current Wave Index (before increment): {currentWaveIndex}");
         currentWaveIndex++;
+        Debug.Log($"Current Wave Index (after increment): {currentWaveIndex}");
+
         if (currentWaveIndex < waves.Length)
         {
-            
-            //waves[currentWaveIndex].SetActive(true);
+
             ActivateWave(currentWaveIndex);
             greenCheckPoints[currentWaveIndex].SetActive(true);
 
-
         }
 
+        if (currentWaveIndex >= waves.Length)
+        {
+            Debug.Log("All waves completed! Displaying UI message.");
+            if (gameManager.uiMessage != null)
+            {
+                levelCompletionMessage.SetActive(true); // Activate the UI message
+            }
+            isTransitioning = false;
+            yield break; // Exit the coroutine, as there are no more waves to transition to
+        }
+
+        //ActivateWave(currentWaveIndex);
         isTransitioning = false;
-        gameManager.uiMessage.gameObject.SetActive(false);
-        //greenCheckPoints[currentWaveIndex].SetActive(true);
+        gameManager.uiMessage.SetActive(false);
 
 
         if (currentWaveIndex >= waves.Length)
         {
             isTransitioning = false;
+            Debug.Log("No transition in progress");
         }
 
     }
@@ -108,10 +127,26 @@ public class TransitionManager : MonoBehaviour
         if (index < waves.Length)
         {
             Debug.Log($"Activating wave: {index}");
+
             waves[index].SetActive(true);
+            
             whiteCheckPoints[index].SetActive(true);
-            greyCheckPoints[index-1].SetActive(false);
+            //greyCheckPoints[index - 1].SetActive(false);
+
+            if (index > 0)
+            {
+                // Deactivate the current greyCheckPoint and optionally the previous one
+                greyCheckPoints[index - 1].SetActive(false);
+            }
+
+            if (index > 1)
+            {
+                // Deactivate an additional greyCheckPoint if applicable
+                greyCheckPoints[index - 2].SetActive(false);
+            }
+
         }
+
         else
         {
             Debug.LogWarning("Wave index is out of range.");
@@ -139,7 +174,7 @@ public class TransitionManager : MonoBehaviour
     {
         if (progressBarFill != null)
         {
-            progressBarFill.transform.localScale = new Vector3(scale, 1f, 1f);
+            progressBarFill.transform.localScale = new Vector3(scale, 1f, 5f);
         }
     }
 }

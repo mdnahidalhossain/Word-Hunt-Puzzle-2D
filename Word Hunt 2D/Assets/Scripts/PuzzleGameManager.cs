@@ -1,27 +1,33 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PuzzleGameManager : MonoBehaviour
 {
-    public Text[] charTextField;
-    public Text uiMessage;
-    public Button[] buttons;
+    [SerializeField] private Text[] charTextField;
+    //[SerializeField] public Text uiMessage;
+    [SerializeField] public GameObject uiMessage;
+    [SerializeField] public GameObject removeButton;
+    [SerializeField] private Button[] buttons;
     [SerializeField] protected Color normalColor; // Default button color
     [SerializeField] protected Color pressedColor;
-    [SerializeField] public string targetWord; // The correct word to guess
-    [SerializeField] public string playerGuess = ""; // Stores the player's current guess
+    [SerializeField] private string targetWord; // The correct word to guess
+    [SerializeField] private string playerGuess = ""; // Stores the player's current guess
 
     protected bool[] isButtonPressed;
-    public bool isPuzzleComplete = false;
-    public TransitionManager waveTransitionManager;
+
+    [SerializeField] private bool isPuzzleComplete = false;
+    [SerializeField] private TransitionManager waveTransitionManager;
+    [SerializeField] private int currentWaveIndex = 0;
 
     protected void Start()
     {
         isButtonPressed = new bool[buttons.Length];
+
+        // Make sure to fetch the target word for the first wave.
+        UpdateTargetWord();
 
         if (buttons != null && buttons.Length > 0)
         {
@@ -31,6 +37,80 @@ public class PuzzleGameManager : MonoBehaviour
             }
         }
 
+        InitializePuzzle();
+
+    }
+
+    private void UpdateTargetWord()
+    {
+        // Ensure that JsonManager instance is available
+        if (JsonManager.instance == null)
+        {
+            Debug.LogError("JsonManager instance is not assigned!");
+            return;
+        }
+
+        // Fetch the target word from JsonManager based on the current wave index
+        targetWord = JsonManager.instance.GetTargetWordForWave(currentWaveIndex);
+
+        if (string.IsNullOrEmpty(targetWord))
+        {
+            Debug.LogError("Target word not found for wave index: " + currentWaveIndex);
+        }
+        else
+        {
+            Debug.Log("Target word for wave " + currentWaveIndex + ": " + targetWord);
+        }
+    }
+
+    private void InitializePuzzle()
+    {
+        if (targetWord.Length > buttons.Length)
+        {
+            Debug.LogError("Target word length exceeds the number of available buttons!");
+            return;
+        }
+
+        // Generate shuffled letters
+        string shuffledLetters = GenerateShuffledLetters(targetWord, buttons.Length);
+
+        // Assign letters to buttons
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            Text buttonText = buttons[i].GetComponentInChildren<Text>();
+            if (i < shuffledLetters.Length)
+            {
+                buttonText.text = shuffledLetters[i].ToString();
+            }
+            else
+            {
+                buttonText.text = ""; // Clear any extra buttons
+            }
+        }
+    }
+
+    private string GenerateShuffledLetters(string word, int buttonCount)
+    {
+        List<char> letters = new List<char>(word);
+
+        // Add random letters to fill extra buttons
+        int extraLettersNeeded = buttonCount - word.Length;
+        for (int i = 0; i < extraLettersNeeded; i++)
+        {
+            char randomLetter = (char)UnityEngine.Random.Range('A', 'Z' + 1);
+            letters.Add(randomLetter);
+        }
+
+        // Shuffle the letters
+        for (int i = letters.Count - 1; i > 0; i--)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, i + 1);
+            char temp = letters[i];
+            letters[i] = letters[randomIndex];
+            letters[randomIndex] = temp;
+        }
+
+        return new string(letters.ToArray());
     }
 
     public void OnButtonClicked(int index)
@@ -39,7 +119,8 @@ public class PuzzleGameManager : MonoBehaviour
         if (isButtonPressed[index])
         {
             // Deselect the letter
-            UnselectLetter(index);
+            //UnselectLetter(index);
+            
         }
         else
         {
@@ -55,6 +136,9 @@ public class PuzzleGameManager : MonoBehaviour
         {
             // Mark the button as pressed
             isButtonPressed[index] = true;
+            //removeButton.SetActive(true);
+
+            
 
             // Update the display field with the letter
             for (int i = 0; i < charTextField.Length; i++)
@@ -85,6 +169,7 @@ public class PuzzleGameManager : MonoBehaviour
                 {
                     isPuzzleComplete = false;
                     Debug.Log("Puzzle Completed: " + isPuzzleComplete);
+                    
                 }
 
             }
@@ -121,28 +206,46 @@ public class PuzzleGameManager : MonoBehaviour
         {
             if (playerGuess == targetWord)
             {
-                uiMessage.text = "Correct!";
-                uiMessage.gameObject.SetActive(true);
-
+                //uiMessage.text = "Correct!";
+                uiMessage.SetActive(true);
+                isPuzzleComplete = true;
                 waveTransitionManager.CompleteCurrentWave();
-
 
             }
             else
             {
-                uiMessage.text = "Incorrect!";
-                uiMessage.gameObject.SetActive(true);
+                //uiMessage.text = "Incorrect!";
+                //uiMessage.gameObject.SetActive(true);
+
                 isPuzzleComplete = false;
 
+                //ResetGame();
+                ResetGameOnCLick();
+                //UnselectLetter();
 
-                ResetGame();
-                UnselectLetter(i);
             }
         }
 
     }
 
-    private void ResetGame()
+    //private void ResetGame()
+    //{
+    //    // Clear display fields and reset variables
+    //    foreach (Text field in charTextField)
+    //    {
+    //        field.text = "";
+    //    }
+    //    playerGuess = "";
+
+    //    for (int i = 0; i < buttons.Length; i++)
+    //    {
+    //        buttons[i].GetComponent<Image>().color = normalColor;
+    //        isButtonPressed[i] = false;
+    //    }
+
+    //}
+
+    public void ResetGameOnCLick()
     {
         // Clear display fields and reset variables
         foreach (Text field in charTextField)
@@ -156,6 +259,11 @@ public class PuzzleGameManager : MonoBehaviour
             buttons[i].GetComponent<Image>().color = normalColor;
             isButtonPressed[i] = false;
         }
+
+        //if (removeButton != null)
+        //{
+        //    removeButton.SetActive(false); // Deactivate remove button when resetting
+        //}
 
     }
 }

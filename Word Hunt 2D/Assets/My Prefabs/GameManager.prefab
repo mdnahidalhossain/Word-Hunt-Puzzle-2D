@@ -62,6 +62,7 @@ MonoBehaviour:
   targetWord: WORD
   playerGuess: 
   isPuzzleComplete: 0
+  waveTransitionManager: {fileID: 0}
 --- !u!114 &4637456096961022031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,6 +91,7 @@ MonoBehaviour:
   targetWord: MARS
   playerGuess: 
   isPuzzleComplete: 0
+  waveTransitionManager: {fileID: 0}
 --- !u!114 &8818416739541743349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +123,7 @@ MonoBehaviour:
   - {fileID: 0}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   pressedColor: {r: 0.7921569, g: 0.7921569, b: 0.7921569, a: 1}
-  targetWord: HOUSE
+  targetWord: 
   playerGuess: 
   isPuzzleComplete: 0
+  waveTransitionManager: {fileID: 0}
