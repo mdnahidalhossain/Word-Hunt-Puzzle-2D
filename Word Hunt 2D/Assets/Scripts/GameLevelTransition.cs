@@ -56,4 +56,14 @@ public class GameLevelTransition : MonoBehaviour
     {
         SceneManager.LoadScene(9);
     }
+
+    public void MovetoLevel10()
+    {
+        SceneManager.LoadScene(10);
+    }
+
+    public void MovetoLevel11()
+    {
+        SceneManager.LoadScene(11);
+    }
 }

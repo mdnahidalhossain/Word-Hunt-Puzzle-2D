@@ -139,6 +139,7 @@ public class PuzzleGameManager : MonoBehaviour
         {
             // Select the letter
             SelectLetter(index);
+            removeButton.SetActive(true);
         }
 
     }
@@ -212,7 +213,7 @@ public class PuzzleGameManager : MonoBehaviour
                 audioSource.Play();
                 isPuzzleComplete = false;
 
-                ResetGameOnCLick();
+                //ResetGameOnCLick();
                 //UnselectLetter();
             }
         }
@@ -234,6 +235,8 @@ public class PuzzleGameManager : MonoBehaviour
             buttons[i].GetComponent<Image>().color = normalColor;
             isButtonPressed[i] = false;
         }
+
+        removeButton.SetActive(false);
 
         //if (removeButton != null)
         //{
