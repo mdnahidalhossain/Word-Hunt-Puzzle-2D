@@ -2,15 +2,153 @@
   "waves": [
     {
       "waveIndex": 0,
-      "targetWord": "WORD"
+      "targetWord": "CAT",
+      "puzzleHint": "A furry mammal"
     },
     {
       "waveIndex": 1,
-      "targetWord": "MARS"
+      "targetWord": "DOG",
+      "puzzleHint": "Man's best friend"
     },
     {
       "waveIndex": 2,
-      "targetWord": "HOUSE"
+      "targetWord": "SUN",
+      "puzzleHint": "Earth's closest star'"
+    },
+    {
+      "waveIndex": 3,
+      "targetWord": "MAP",
+      "puzzleHint": "Something you look at when you get lost"
+    },
+    {
+      "waveIndex": 4,
+      "targetWord": "CAR",
+      "puzzleHint": "Something you drive"
+    },
+    {
+      "waveIndex": 5,
+      "targetWord": "BOOK",
+      "puzzleHint": "Something that you read"
+    },
+    {
+      "waveIndex": 6,
+      "targetWord": "SHIP",
+      "puzzleHint": "Sail"
+    },
+    {
+      "waveIndex": 7,
+      "targetWord": "CAKE",
+      "puzzleHint": "Birthday"
+    },
+    {
+      "waveIndex": 8,
+      "targetWord": "WOLF",
+      "puzzleHint": "A carnivorous mammal that howls"
+    },
+    {
+      "waveIndex": 9,
+      "targetWord": "FISH",
+      "puzzleHint": "Lives under water"
+    },
+    {
+      "waveIndex": 10,
+      "targetWord": "FIRE",
+      "puzzleHint": "Flamin' hot!"
+    },
+    {
+      "waveIndex": 11,
+      "targetWord": "ROCK",
+      "puzzleHint": "Dwayne the ____ Johnson"
+    },
+    {
+      "waveIndex": 12,
+      "targetWord": "LION",
+      "puzzleHint": "King of the jungle"
+    },
+    {
+      "waveIndex": 13,
+      "targetWord": "RING",
+      "puzzleHint": "A round jewellery"
+    },
+    {
+      "waveIndex": 14,
+      "targetWord": "TREE",
+      "puzzleHint": "____ trunk"
+    },
+    {
+      "waveIndex": 15,
+      "targetWord": "FORK",
+      "puzzleHint": "Rhymes with 'pork'"
+    },
+    {
+      "waveIndex": 16,
+      "targetWord": "BOX",
+      "puzzleHint": "A cube"
+    },
+    {
+      "waveIndex": 17,
+      "targetWord": "HAT",
+      "puzzleHint": "Rhymes with 'fat'"
+    },
+    {
+      "waveIndex": 18,
+      "targetWord": "LAMP",
+      "puzzleHint": "I brighten your room when it's dark, and I stand tall or sit small on a desk or floor"
+    },
+    {
+      "waveIndex": 19,
+      "targetWord": "HEN",
+      "puzzleHint": "Chicken"
+    },
+    {
+      "waveIndex": 20,
+      "targetWord": "DESK",
+      "puzzleHint": "I hold your work, books, and pens, a sturdy friend where tasks begin"
+    },
+    {
+      "waveIndex": 21,
+      "targetWord": "CUP",
+      "puzzleHint": "A small container often used for drinking beverages"
+    },
+    {
+      "waveIndex": 22,
+      "targetWord": "BALL",
+      "puzzleHint": "A round object used in various sports and games"
+    },
+    {
+      "waveIndex": 23,
+      "targetWord": "JAM",
+      "puzzleHint": "A sweet spread made from fruit and sugar, often used on bread"
+    },
+    {
+      "waveIndex": 24,
+      "targetWord": "KEY",
+      "puzzleHint": "A small tool used to unlock doors or start something"
+    },
+    {
+      "waveIndex": 25,
+      "targetWord": "STAR",
+      "puzzleHint": "A bright object in the night sky that twinkles from far away"
+    },
+    {
+      "waveIndex": 26,
+      "targetWord": "BOAT",
+      "puzzleHint": "A small vessel used for traveling on water"
+    },
+    {
+      "waveIndex": 27,
+      "targetWord": "TIME",
+      "puzzleHint": "A continuous, measurable period in which events occur, often tracked with clocks or calendars"
+    },
+    {
+      "waveIndex": 28,
+      "targetWord": "SNOW",
+      "puzzleHint": "Frozen precipitation that falls as small white flakes from the sky, commonly seen in winter"
+    },
+    {
+      "waveIndex": 29,
+      "targetWord": "BAG",
+      "puzzleHint": "A flexible container used to carry items, often made of cloth, plastic, or paper."
     }
   ]
 }
