@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static Unity.Burst.Intrinsics.X86;
@@ -8,27 +9,27 @@ public class TransitionManager : MonoBehaviour
 {
     [SerializeField] private PuzzleGameManager gameManager;
     [SerializeField] private GameObject[] waves;
-
-    private int currentWaveIndex = 0;
-    private bool isTransitioning = false;
-
     [SerializeField] private GameObject progressBarFill; // Reference to the progress bar fill object
     [SerializeField] private GameObject levelCompletionMessage;
     [SerializeField] private GameObject[] whiteCheckPoints;
     [SerializeField] private GameObject[] greyCheckPoints;
     [SerializeField] private GameObject[] greenCheckPoints; 
     [SerializeField] private float progressBarFillTime = 0.5f;
+    [SerializeField] private bool isRandomWaveOrder = false; // Enable random wave transitions for the second scene
+
+    private GameObject[] waveOrder;
+    private List<int> waveIndices = new List<int>();
+    private int currentWaveIndex = 0;
+    private bool isTransitioning = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        waveOrder = isRandomWaveOrder ? ShuffleArray(waves) : waves;
 
-        if (waves.Length > 0)
-        {
-            waves[currentWaveIndex].SetActive(true);
-            whiteCheckPoints[currentWaveIndex].SetActive(true);
-        }
-
+        ActivateWave(0);
+        ActivateCheckpoint(0, "white");
 
     }
 
@@ -43,13 +44,9 @@ public class TransitionManager : MonoBehaviour
             return;
         }
 
-
-        if (currentWaveIndex < waves.Length)
+        if (currentWaveIndex < waveOrder.Length)
         {
-            // Increment the wave index to fetch the correct target word for the next wave
-            
             StartCoroutine(TransitionToNextWave());
-
         }
         else
         {
@@ -63,12 +60,11 @@ public class TransitionManager : MonoBehaviour
         isTransitioning = true;
 
         // Deactivate the current wave
+        DeactivateWave(currentWaveIndex);
+        DeactivateCheckpoint(currentWaveIndex, "white");
+        ActivateCheckpoint(currentWaveIndex, "green");
 
-        yield return new WaitForSeconds(1.5f);
-
-        waves[currentWaveIndex].SetActive(false);// Optional delay for smooth transitions
-        whiteCheckPoints[currentWaveIndex].SetActive(false);
-
+        yield return new WaitForSeconds(1.0f);
 
 
         if (progressBarFill != null)
@@ -90,12 +86,10 @@ public class TransitionManager : MonoBehaviour
         currentWaveIndex++;
         Debug.Log($"Current Wave Index (after increment): {currentWaveIndex}");
 
-        if (currentWaveIndex < waves.Length)
+        if (currentWaveIndex < waveOrder.Length)
         {
-
             ActivateWave(currentWaveIndex);
-            greenCheckPoints[currentWaveIndex].SetActive(true);
-
+            ActivateCheckpoint(currentWaveIndex, "white");
         }
 
         if (currentWaveIndex >= waves.Length)
@@ -114,6 +108,7 @@ public class TransitionManager : MonoBehaviour
         gameManager.uiMessage.SetActive(false);
 
 
+
         if (currentWaveIndex >= waves.Length)
         {
             isTransitioning = false;
@@ -124,34 +119,44 @@ public class TransitionManager : MonoBehaviour
 
     private void ActivateWave(int index)
     {
-        if (index < waves.Length)
+        if (index < waveOrder.Length)
         {
-            Debug.Log($"Activating wave: {index}");
+            waveOrder[index].SetActive(true);
 
-            waves[index].SetActive(true);
-            
-            whiteCheckPoints[index].SetActive(true);
-            //greyCheckPoints[index - 1].SetActive(false);
-
+            // Update grey checkpoint visibility
             if (index > 0)
             {
-                // Deactivate the current greyCheckPoint and optionally the previous one
-                greyCheckPoints[index - 1].SetActive(false);
+                DeactivateCheckpoint(index - 1, "grey");
             }
-
-            if (index > 1)
-            {
-                // Deactivate an additional greyCheckPoint if applicable
-                greyCheckPoints[index - 2].SetActive(false);
-            }
-
-        }
-
-        else
-        {
-            Debug.LogWarning("Wave index is out of range.");
         }
     }
+
+    private void DeactivateWave(int index)
+    {
+        if (index < waveOrder.Length)
+        {
+            waveOrder[index].SetActive(false);
+        }
+    }
+
+    private void ActivateCheckpoint(int index, string type)
+    {
+        if (type == "white" && index < whiteCheckPoints.Length)
+            whiteCheckPoints[index].SetActive(true);
+        else if (type == "green" && index < greenCheckPoints.Length)
+            greenCheckPoints[index].SetActive(true);
+        else if (type == "grey" && index < greyCheckPoints.Length)
+            greyCheckPoints[index].SetActive(true);
+    }
+
+    private void DeactivateCheckpoint(int index, string type)
+    {
+        if (type == "white" && index < whiteCheckPoints.Length)
+            whiteCheckPoints[index].SetActive(false);
+        else if (type == "grey" && index < greyCheckPoints.Length)
+            greyCheckPoints[index].SetActive(false);
+    }
+
 
     private IEnumerator AnimateProgressBar(float targetScaleX)
     {
@@ -177,5 +182,20 @@ public class TransitionManager : MonoBehaviour
             progressBarFill.transform.localScale = new Vector3(scale, 1f, 5f);
         }
     }
+
+    private GameObject[] ShuffleArray(GameObject[] array)
+    {
+        GameObject[] shuffledArray = (GameObject[])array.Clone();
+        for (int i = 0; i < shuffledArray.Length; i++)
+        {
+            int randomIndex = UnityEngine.Random.Range(i, shuffledArray.Length);
+            GameObject temp = shuffledArray[i];
+            shuffledArray[i] = shuffledArray[randomIndex];
+            shuffledArray[randomIndex] = temp;
+        }
+        //Debug.Log("Shuffled Waves Order: " + string.Join(", ", shuffledArray));
+        return shuffledArray;
+    }
+
 }
 
