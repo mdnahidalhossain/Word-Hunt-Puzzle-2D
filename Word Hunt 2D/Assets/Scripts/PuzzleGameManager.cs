@@ -14,13 +14,16 @@ public class PuzzleGameManager : MonoBehaviour
     [SerializeField] protected Color normalColor; // Default button color
     [SerializeField] protected Color pressedColor;
     [SerializeField] private string targetWord; // The correct word to guess
+    [SerializeField] private Text descriptionText;
     [SerializeField] private string playerGuess = ""; // Stores the player's current guess
-
-    protected bool[] isButtonPressed;
-
     [SerializeField] private bool isPuzzleComplete = false;
     [SerializeField] private TransitionManager waveTransitionManager;
     [SerializeField] private int currentWaveIndex = 0;
+
+    public AudioClip errorAudioClip;
+    public AudioSource audioSource;
+
+    protected bool[] isButtonPressed;
 
     protected void Start()
     {
@@ -28,6 +31,7 @@ public class PuzzleGameManager : MonoBehaviour
 
         // Make sure to fetch the target word for the first wave.
         UpdateTargetWord();
+        UpdateWavePuzzleHint(); 
 
         if (buttons != null && buttons.Length > 0)
         {
@@ -60,6 +64,15 @@ public class PuzzleGameManager : MonoBehaviour
         else
         {
             Debug.Log("Target word for wave " + currentWaveIndex + ": " + targetWord);
+        }
+    }
+
+    private void UpdateWavePuzzleHint()
+    {
+        string description = JsonManager.instance.GetPuzzleHintForWave(currentWaveIndex);
+        if (descriptionText != null && !string.IsNullOrEmpty(description))
+        {
+            descriptionText.text = description; // Display the description
         }
     }
 
@@ -167,34 +180,14 @@ public class PuzzleGameManager : MonoBehaviour
                 }
                 else
                 {
+
                     isPuzzleComplete = false;
                     Debug.Log("Puzzle Completed: " + isPuzzleComplete);
-                    
+
                 }
 
             }
         }
-    }
-
-    private void UnselectLetter(int index)
-    {
-        // Mark the button as unpressed
-        isButtonPressed[index] = false;
-
-        // Remove the letter from the player's guess
-        playerGuess = playerGuess.Replace(buttons[index].GetComponentInChildren<Text>().text, "");
-
-        // Clear the corresponding display field
-        for (int i = 0; i < charTextField.Length; i++)
-        {
-            if (charTextField[i].text == buttons[index].GetComponentInChildren<Text>().text)
-            {
-                charTextField[i].text = "";
-                break;
-            }
-        }
-        buttons[index].GetComponent<Image>().color = normalColor;
-
     }
 
     private IEnumerator CheckGuessWithDelay()
@@ -215,35 +208,17 @@ public class PuzzleGameManager : MonoBehaviour
             else
             {
                 //uiMessage.text = "Incorrect!";
-                //uiMessage.gameObject.SetActive(true);
-
+                audioSource.clip = errorAudioClip;
+                audioSource.Play();
                 isPuzzleComplete = false;
 
-                //ResetGame();
                 ResetGameOnCLick();
                 //UnselectLetter();
-
             }
         }
 
     }
 
-    //private void ResetGame()
-    //{
-    //    // Clear display fields and reset variables
-    //    foreach (Text field in charTextField)
-    //    {
-    //        field.text = "";
-    //    }
-    //    playerGuess = "";
-
-    //    for (int i = 0; i < buttons.Length; i++)
-    //    {
-    //        buttons[i].GetComponent<Image>().color = normalColor;
-    //        isButtonPressed[i] = false;
-    //    }
-
-    //}
 
     public void ResetGameOnCLick()
     {
