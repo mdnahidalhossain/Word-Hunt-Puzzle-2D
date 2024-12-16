@@ -148,7 +148,22 @@
     {
       "waveIndex": 29,
       "targetWord": "BAG",
-      "puzzleHint": "A flexible container used to carry items, often made of cloth, plastic, or paper."
+      "puzzleHint": "A flexible container used to carry items, often made of cloth, plastic, or paper"
+    },
+    {
+      "waveIndex": 30,
+      "targetWord": "RIVER",
+      "puzzleHint": "A large, flowing body of water that moves towards a lake, sea, or ocean"
+    },
+    {
+      "waveIndex": 31,
+      "targetWord": "GOLD",
+      "puzzleHint": "A shiny yellow metal that is valuable and often used for jewelry or coins"
+    },
+    {
+      "waveIndex": 32,
+      "targetWord": "HORSE",
+      "puzzleHint": "A large animal with hooves, often used for riding or pulling carts"
     }
   ]
 }

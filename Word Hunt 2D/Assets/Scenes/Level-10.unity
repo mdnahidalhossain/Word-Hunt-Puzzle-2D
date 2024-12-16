@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &22003214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 410823274354058571, guid: 03d32bcc921909e4588195264a251a76, type: 3}
+  m_PrefabInstance: {fileID: 576593989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &99299480 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6732174531846889583, guid: ce92e29d487851945bbc5f9818f62af2, type: 3}
@@ -1176,6 +1181,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Remove-button
       objectReference: {fileID: 0}
+    - target: {fileID: 410823274354058571, guid: 03d32bcc921909e4588195264a251a76, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5687032798937190852, guid: 03d32bcc921909e4588195264a251a76, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1246,7 +1255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6208744656725459809, guid: 03d32bcc921909e4588195264a251a76, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 250
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6208744656725459809, guid: 03d32bcc921909e4588195264a251a76, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1687,6 +1696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Remove-button
       objectReference: {fileID: 0}
+    - target: {fileID: 410823274354058571, guid: 03d32bcc921909e4588195264a251a76, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5687032798937190852, guid: 03d32bcc921909e4588195264a251a76, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1946,7 +1959,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1212845381}
         m_TargetAssemblyTypeName: GameLevelTransition, Assembly-CSharp
-        m_MethodName: MovetoLevel2
+        m_MethodName: MovetoLevel11
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2297,7 +2310,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level 9 Complete
+  m_Text: Level 10 Complete
 --- !u!222 &1438245731
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2380,7 +2393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4801135510229197391, guid: 4c11244cb692faa42bc8663a000ddd21, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 345.0001
+      value: 329
       objectReference: {fileID: 0}
     - target: {fileID: 4801135510229197391, guid: 4c11244cb692faa42bc8663a000ddd21, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3541,6 +3554,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Remove-button
       objectReference: {fileID: 0}
+    - target: {fileID: 410823274354058571, guid: 03d32bcc921909e4588195264a251a76, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5687032798937190852, guid: 03d32bcc921909e4588195264a251a76, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3964,7 +3981,7 @@ PrefabInstance:
     - target: {fileID: 4637456096961022031, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
       propertyPath: removeButton
       value: 
-      objectReference: {fileID: 410823274354058571, guid: 03d32bcc921909e4588195264a251a76, type: 3}
+      objectReference: {fileID: 359542939}
     - target: {fileID: 4637456096961022031, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
       propertyPath: errorAudioClip
       value: 
@@ -4104,7 +4121,7 @@ PrefabInstance:
     - target: {fileID: 8818416739541743349, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
       propertyPath: removeButton
       value: 
-      objectReference: {fileID: 359542939}
+      objectReference: {fileID: 22003214}
     - target: {fileID: 8818416739541743349, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
       propertyPath: errorAudioClip
       value: 

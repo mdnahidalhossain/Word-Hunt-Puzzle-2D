@@ -839,6 +839,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Remove-button
       objectReference: {fileID: 0}
+    - target: {fileID: 410823274354058571, guid: 03d32bcc921909e4588195264a251a76, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5687032798937190852, guid: 03d32bcc921909e4588195264a251a76, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -936,6 +940,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03d32bcc921909e4588195264a251a76, type: 3}
+--- !u!1 &576593990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 410823274354058571, guid: 03d32bcc921909e4588195264a251a76, type: 3}
+  m_PrefabInstance: {fileID: 576593989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &607012773 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5015145121917501428, guid: fe19e1bdc0d27e842a4d582178437c4e, type: 3}
@@ -1293,6 +1302,10 @@ PrefabInstance:
     - target: {fileID: 410823274354058571, guid: 03d32bcc921909e4588195264a251a76, type: 3}
       propertyPath: m_Name
       value: Remove-button
+      objectReference: {fileID: 0}
+    - target: {fileID: 410823274354058571, guid: 03d32bcc921909e4588195264a251a76, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5687032798937190852, guid: 03d32bcc921909e4588195264a251a76, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2921,6 +2934,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Remove-button
       objectReference: {fileID: 0}
+    - target: {fileID: 410823274354058571, guid: 03d32bcc921909e4588195264a251a76, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5687032798937190852, guid: 03d32bcc921909e4588195264a251a76, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3918,7 +3935,7 @@ PrefabInstance:
     - target: {fileID: 4637456096961022031, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
       propertyPath: removeButton
       value: 
-      objectReference: {fileID: 410823274354058571, guid: 03d32bcc921909e4588195264a251a76, type: 3}
+      objectReference: {fileID: 576593990}
     - target: {fileID: 4637456096961022031, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
       propertyPath: errorAudioClip
       value: 
