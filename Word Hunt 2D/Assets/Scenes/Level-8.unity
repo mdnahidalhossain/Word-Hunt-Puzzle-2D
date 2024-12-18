@@ -1222,6 +1222,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03d32bcc921909e4588195264a251a76, type: 3}
+--- !u!1 &576593990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 410823274354058571, guid: 03d32bcc921909e4588195264a251a76, type: 3}
+  m_PrefabInstance: {fileID: 576593989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &605482837 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4801135510229197391, guid: 4c11244cb692faa42bc8663a000ddd21, type: 3}
@@ -4213,7 +4218,7 @@ PrefabInstance:
     - target: {fileID: 8818416739541743349, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
       propertyPath: removeButton
       value: 
-      objectReference: {fileID: 359542939}
+      objectReference: {fileID: 576593990}
     - target: {fileID: 8818416739541743349, guid: cfeaaaae60df9c449a69f473c0ccbdc1, type: 3}
       propertyPath: errorAudioClip
       value: 
