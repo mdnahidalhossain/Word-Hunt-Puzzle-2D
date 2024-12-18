@@ -164,6 +164,96 @@
       "waveIndex": 32,
       "targetWord": "HORSE",
       "puzzleHint": "A large animal with hooves, often used for riding or pulling carts"
+    },
+    {
+      "waveIndex": 33,
+      "targetWord": "BREAD",
+      "puzzleHint": "A staple food made from dough, baked into loaves, and often used for sandwiches"
+    },
+    {
+      "waveIndex": 34,
+      "targetWord": "DUCK",
+      "puzzleHint": "A water bird with a broad bill and webbed feet, often seen swimming in ponds or lakes"
+    },
+    {
+      "waveIndex": 35,
+      "targetWord": "TABLE",
+      "puzzleHint": "A flat surface with legs, often used for eating, working, or holding objects"
+    },
+    {
+      "waveIndex": 36,
+      "targetWord": "LEAF",
+      "puzzleHint": "A flat, green part of a plant that grows from the stem and helps with photosynthesis"
+    },
+    {
+      "waveIndex": 37,
+      "targetWord": "FROG",
+      "puzzleHint": "A small, amphibious creature known for its jumping ability and croaking sound"
+    },
+    {
+      "waveIndex": 38,
+      "targetWord": "CHAIR",
+      "puzzleHint": "A piece of furniture with a seat, backrest, and often four legs, used for sitting"
+    },
+    {
+      "waveIndex": 39,
+      "targetWord": "PLANT",
+      "puzzleHint": "A living organism that typically grows in soil, has roots, stems, and leaves, and produces oxygen"
+    },
+    {
+      "waveIndex": 40,
+      "targetWord": "BIKE",
+      "puzzleHint": "A two-wheeled vehicle powered by pedaling, often used for transportation or recreation"
+    },
+    {
+      "waveIndex": 41,
+      "targetWord": "TRAIN",
+      "puzzleHint": "A series of connected vehicles that move along tracks, often used for transporting people or goods"
+    },
+    {
+      "waveIndex": 42,
+      "targetWord": "MUSIC",
+      "puzzleHint": "A collection of sounds arranged in a rhythm, melody, and harmony, often produced by instruments or voices"
+    },
+    {
+      "waveIndex": 43,
+      "targetWord": "HILL",
+      "puzzleHint": "A small, raised area of land, typically smaller than a mountain"
+    },
+    {
+      "waveIndex": 44,
+      "targetWord": "GLASS",
+      "puzzleHint": "A transparent, fragile material used in windows, bottles, and cups"
+    },
+    {
+      "waveIndex": 45,
+      "targetWord": "WORM",
+      "puzzleHint": "A small, soft-bodied creature that lives in soil and wriggles when it moves"
+    },
+    {
+      "waveIndex": 46,
+      "targetWord": "SPAM",
+      "puzzleHint": "Unwanted or repetitive messages, often found in emails"
+    },
+    {
+      "waveIndex": 47,
+      "targetWord": "LEMON",
+      "puzzleHint": "A sour, yellow fruit often used in drinks and cooking"
+    },
+    {
+      "waveIndex": 48,
+      "targetWord": "SWEET",
+      "puzzleHint": "Cats are unable to detect this taste"
+    },
+    {
+      "waveIndex": 49,
+      "targetWord": "GILT",
+      "puzzleHint": "A young female pig is called ____"
+    },
+    {
+      "waveIndex": 50,
+      "targetWord": "CHIEF",
+      "puzzleHint": "A leader or the person in charge of a group or organization"
     }
   ]
 }
