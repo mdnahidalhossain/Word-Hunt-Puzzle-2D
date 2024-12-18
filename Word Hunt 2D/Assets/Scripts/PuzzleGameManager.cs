@@ -211,6 +211,7 @@ public class PuzzleGameManager : MonoBehaviour
                 //uiMessage.text = "Incorrect!";
                 audioSource.clip = errorAudioClip;
                 audioSource.Play();
+                VibratePhone();
                 isPuzzleComplete = false;
 
                 //ResetGameOnCLick();
@@ -218,6 +219,15 @@ public class PuzzleGameManager : MonoBehaviour
             }
         }
 
+    }
+
+    void VibratePhone()
+    {
+        // Check if the device supports vibration (for mobile platforms)
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            Handheld.Vibrate();
+        }
     }
 
 
