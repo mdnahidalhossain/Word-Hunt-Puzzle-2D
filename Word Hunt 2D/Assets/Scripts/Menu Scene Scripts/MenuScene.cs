@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,5 +21,13 @@ public class MenuScene : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void ExitGame()
+    {
+        //EditorApplication.ExitPlaymode();
+
+        Application.Quit();
+        Debug.Log("Player has exit the game.");
     }
 }
