@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Unity.VisualScripting;
+using System.Collections;
+using UnityEngine.Networking;
 
 [System.Serializable]
 public class WaveData
@@ -42,7 +44,12 @@ public class JsonManager : MonoBehaviour
     {
         string filePath = Path.Combine(Application.streamingAssetsPath, "targetWords.json");
 
-        if (File.Exists(filePath))
+        // Check platform-specific loading
+        if (filePath.Contains("://") || filePath.Contains(":///")) // For Android and WebGL
+        {
+            StartCoroutine(LoadJsonFromWeb(filePath));
+        }
+        else if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
             waveDataList = JsonUtility.FromJson<WaveDataList>(json);
@@ -50,6 +57,25 @@ public class JsonManager : MonoBehaviour
         else
         {
             Debug.LogError("Wave data file not found.");
+        }
+    }
+
+    private IEnumerator LoadJsonFromWeb(string path)
+    {
+        using (UnityWebRequest request = UnityWebRequest.Get(path))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                string json = request.downloadHandler.text;
+                waveDataList = JsonUtility.FromJson<WaveDataList>(json);
+                Debug.Log("Wave data loaded successfully from StreamingAssets.");
+            }
+            else
+            {
+                Debug.LogError("Failed to load wave data: " + request.error);
+            }
         }
     }
 
