@@ -47,10 +47,13 @@ public class TransitionManager : MonoBehaviour
         if (currentWaveIndex < waveOrder.Length)
         {
             StartCoroutine(TransitionToNextWave());
+
+            //HintPointsManager.instance.SaveHintPoints(gameManager.totalHintPoints);
         }
         else
         {
             Debug.Log("All waves completed!");
+            gameManager.CompleteLevel();
         }
     }
 
@@ -58,11 +61,14 @@ public class TransitionManager : MonoBehaviour
     {
         
         isTransitioning = true;
+        HintPointsManager.instance.SaveHintPoints(gameManager.totalHintPoints);
 
         // Deactivate the current wave
         DeactivateWave(currentWaveIndex);
         DeactivateCheckpoint(currentWaveIndex, "white");
         ActivateCheckpoint(currentWaveIndex, "green");
+
+        
 
         yield return new WaitForSeconds(1.0f);
 
@@ -90,6 +96,7 @@ public class TransitionManager : MonoBehaviour
         {
             ActivateWave(currentWaveIndex);
             ActivateCheckpoint(currentWaveIndex, "white");
+            
         }
 
         if (currentWaveIndex >= waves.Length)

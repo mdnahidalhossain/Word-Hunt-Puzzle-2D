@@ -122,13 +122,13 @@
     },
     {
       "waveIndex": 24,
-      "targetWord": "KEY",
-      "puzzleHint": "A small tool used to unlock doors or start something"
+      "targetWord": "STAR",
+      "puzzleHint": "A bright object in the night sky that twinkles from far away"
     },
     {
       "waveIndex": 25,
-      "targetWord": "STAR",
-      "puzzleHint": "A bright object in the night sky that twinkles from far away"
+      "targetWord": "KEY",
+      "puzzleHint": "A small tool used to unlock doors or start something"
     },
     {
       "waveIndex": 26,
@@ -142,13 +142,13 @@
     },
     {
       "waveIndex": 28,
-      "targetWord": "SNOW",
-      "puzzleHint": "Frozen precipitation that falls as small white flakes from the sky, commonly seen in winter"
+      "targetWord": "BAG",
+      "puzzleHint": "A flexible container used to carry items, often made of cloth, plastic, or paper"
     },
     {
       "waveIndex": 29,
-      "targetWord": "BAG",
-      "puzzleHint": "A flexible container used to carry items, often made of cloth, plastic, or paper"
+      "targetWord": "SNOW",
+      "puzzleHint": "Frozen precipitation that falls as small white flakes from the sky, commonly seen in winter"
     },
     {
       "waveIndex": 30,

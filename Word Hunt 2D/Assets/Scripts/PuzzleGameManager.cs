@@ -9,10 +9,11 @@ public class PuzzleGameManager : MonoBehaviour
     [SerializeField] private Text[] charTextField;
     //[SerializeField] public Text uiMessage;
     [SerializeField] public GameObject uiMessage;
-    [SerializeField] public GameObject removeButton;
+    //[SerializeField] public GameObject removeButton;
     [SerializeField] private Button[] buttons;
     [SerializeField] protected Color normalColor; // Default button color
     [SerializeField] protected Color pressedColor;
+    [SerializeField] protected Color hintColor;
     [SerializeField] private string targetWord; // The correct word to guess
     [SerializeField] private Text descriptionText;
     [SerializeField] private string playerGuess = ""; // Stores the player's current guess
@@ -25,13 +26,29 @@ public class PuzzleGameManager : MonoBehaviour
 
     protected bool[] isButtonPressed;
 
+    public int hintCount = 0;
+    public int totalHintPoints = 0; // Track total hint points
+    [SerializeField] private Text hintPointsText;
+
+    private void UpdateHintPointsText()
+    {
+        if (hintPointsText != null)
+        {
+            hintPointsText.text = "Hint: " + totalHintPoints.ToString();
+        }
+    }
+
     protected void Start()
     {
         isButtonPressed = new bool[buttons.Length];
 
+        totalHintPoints = HintPointsManager.instance.LoadHintPoints();
         // Make sure to fetch the target word for the first wave.
         UpdateTargetWord();
-        UpdateWavePuzzleHint(); 
+        UpdateWavePuzzleHint();
+
+        UpdateHintPointsText();
+
 
         if (buttons != null && buttons.Length > 0)
         {
@@ -39,6 +56,7 @@ public class PuzzleGameManager : MonoBehaviour
             {
                 button.GetComponent<Image>().color = normalColor;
             }
+
         }
 
         InitializePuzzle();
@@ -139,7 +157,7 @@ public class PuzzleGameManager : MonoBehaviour
         {
             // Select the letter
             SelectLetter(index);
-            removeButton.SetActive(true);
+            //removeButton.SetActive(true);
         }
 
     }
@@ -221,6 +239,81 @@ public class PuzzleGameManager : MonoBehaviour
 
     }
 
+    // Award hint points after completing a level
+    public void CompleteLevel()
+    {
+        totalHintPoints += 5; // Award 5 hint points per level
+        Debug.Log("Level completed. Total hint points: " + totalHintPoints);
+        UpdateHintPointsText();
+    }
+
+    
+
+
+    public void OnHintButtonClicked()
+    {
+        if (totalHintPoints > 0) // Ensure there are hint points available
+        {
+            if (hintCount < targetWord.Length)
+            {
+                char nextCharToReveal = targetWord[hintCount];
+
+                // Skip over already guessed or pressed characters
+                while (hintCount < targetWord.Length && playerGuess.Contains(nextCharToReveal.ToString()))
+                {
+                    hintCount++;
+                    if (hintCount < targetWord.Length)
+                    {
+                        nextCharToReveal = targetWord[hintCount];
+                    }
+                }
+
+                // If hintCount exceeds the length of the target word, stop providing hints
+                if (hintCount >= targetWord.Length)
+                {
+                    Debug.Log("All hints used or all characters already guessed!");
+                    return;
+                }
+
+                // Highlight the correct button that matches the next character
+                for (int i = 0; i < buttons.Length; i++)
+                {
+                    Text buttonText = buttons[i].GetComponentInChildren<Text>();
+
+                    if (buttonText.text == nextCharToReveal.ToString() && !isButtonPressed[i])
+                    {
+                        buttons[i].GetComponent<Image>().color = hintColor;
+                        Debug.Log($"Hint: Press button with '{nextCharToReveal}'");
+
+                        hintCount++;
+                        totalHintPoints--; // Decrease hint points when a hint is used
+                        Debug.Log("Remaining hint points: " + totalHintPoints);
+
+                        // Update the hint points UI text after using a hint
+                        UpdateHintPointsText();
+
+                        return;
+                    }
+                }
+
+                // Save updated hint points
+                //HintPointsManager.instance.SaveHintPoints(totalHintPoints);
+            }
+            else
+            {
+                Debug.Log("All hints used!");
+            }
+            HintPointsManager.instance.SaveHintPoints(totalHintPoints);
+
+        }
+        else
+        {
+            Debug.Log("No hint points available!");
+        }
+    }
+
+
+
     void VibratePhone()
     {
         // Check if the device supports vibration (for mobile platforms)
@@ -229,7 +322,6 @@ public class PuzzleGameManager : MonoBehaviour
             Handheld.Vibrate();
         }
     }
-
 
     public void ResetGameOnCLick()
     {
@@ -246,12 +338,14 @@ public class PuzzleGameManager : MonoBehaviour
             isButtonPressed[i] = false;
         }
 
-        removeButton.SetActive(false);
+        //removeButton.SetActive(false);
 
         //if (removeButton != null)
         //{
         //    removeButton.SetActive(false); // Deactivate remove button when resetting
         //}
+
+        hintCount = 0;
 
     }
 }

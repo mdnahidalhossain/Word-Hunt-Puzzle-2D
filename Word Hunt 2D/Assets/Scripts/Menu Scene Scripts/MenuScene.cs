@@ -18,6 +18,11 @@ public class MenuScene : MonoBehaviour
         
     }
 
+    public void HomeScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
