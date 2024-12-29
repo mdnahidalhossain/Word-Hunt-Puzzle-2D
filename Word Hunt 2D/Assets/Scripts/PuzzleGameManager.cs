@@ -22,6 +22,7 @@ public class PuzzleGameManager : MonoBehaviour
     [SerializeField] private int currentWaveIndex = 0;
 
     public AudioClip errorAudioClip;
+    //public AudioClip ButtonSoundClip;
     public AudioSource audioSource;
 
     protected bool[] isButtonPressed;
@@ -146,11 +147,12 @@ public class PuzzleGameManager : MonoBehaviour
 
     public void OnButtonClicked(int index)
     {
+        
 
         if (isButtonPressed[index])
         {
             // Deselect the letter
-            //UnselectLetter(index);
+            UnselectLetter(index);
             
         }
         else
@@ -162,33 +164,40 @@ public class PuzzleGameManager : MonoBehaviour
 
     }
 
+
     private void SelectLetter(int index)
     {
         if (playerGuess.Length < targetWord.Length)
         {
             // Mark the button as pressed
             isButtonPressed[index] = true;
-            //removeButton.SetActive(true);
+            //audioSource.clip = ButtonSoundClip;
+            //audioSource.Play();
 
-            
+            // Get the letter to select
+            string letterToSelect = buttons[index].GetComponentInChildren<Text>().text;
 
-            // Update the display field with the letter
-            for (int i = 0; i < charTextField.Length; i++)
+            // Add the letter to the first available slot in playerGuess
+            char[] guessArray = playerGuess.PadRight(targetWord.Length, ' ').ToCharArray();
+            for (int i = 0; i < guessArray.Length; i++)
             {
-                if (charTextField[i].text == "")
+                if (guessArray[i] == ' ') // Find the first empty slot
                 {
-                    charTextField[i].text = buttons[index].GetComponentInChildren<Text>().text;
+                    guessArray[i] = letterToSelect[0];
+                    charTextField[i].text = letterToSelect; // Update the display field
                     break;
                 }
             }
+            playerGuess = new string(guessArray).TrimEnd();
 
-            // Add the letter to the player's guess
-            playerGuess += buttons[index].GetComponentInChildren<Text>().text;
+            // Update the button's appearance
             buttons[index].GetComponent<Image>().color = pressedColor;
 
-            if (playerGuess.Length == targetWord.Length)
+            Debug.Log($"Selected letter: {letterToSelect}, updated playerGuess: {playerGuess}");
+
+            // Check if the guess is complete
+            if (playerGuess.Replace(" ", "").Length == targetWord.Length)
             {
-                //CheckGuess();
                 StartCoroutine(CheckGuessWithDelay());
 
                 if (playerGuess == targetWord)
@@ -204,15 +213,52 @@ public class PuzzleGameManager : MonoBehaviour
                     Debug.Log("Puzzle Completed: " + isPuzzleComplete);
 
                 }
-
             }
         }
     }
 
+
+    private void UnselectLetter(int index)
+    {
+        // Mark the button as unpressed
+        isButtonPressed[index] = false;
+
+        // Get the letter to unselect
+        string letterToUnselect = buttons[index].GetComponentInChildren<Text>().text;
+
+        // Replace the letter with a space in playerGuess to maintain position
+        char[] guessArray = playerGuess.ToCharArray();
+        for (int i = 0; i < guessArray.Length; i++)
+        {
+            if (guessArray[i].ToString() == letterToUnselect)
+            {
+                guessArray[i] = ' '; // Leave a blank space
+                break;
+            }
+        }
+        playerGuess = new string(guessArray);
+
+        // Clear the corresponding text field
+        for (int i = 0; i < charTextField.Length; i++)
+        {
+            if (charTextField[i].text == letterToUnselect)
+            {
+                charTextField[i].text = ""; // Clear the display
+                break;
+            }
+        }
+
+        // Reset the button's appearance
+        buttons[index].GetComponent<Image>().color = normalColor;
+
+        Debug.Log($"Unselected letter: {letterToUnselect}, updated playerGuess: {playerGuess}");
+    }
+
+
     private IEnumerator CheckGuessWithDelay()
     {
         // Wait for few second before showing the result
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
 
         for (int i = 0; i < charTextField.Length; i++)
         {
@@ -232,7 +278,7 @@ public class PuzzleGameManager : MonoBehaviour
                 VibratePhone();
                 isPuzzleComplete = false;
 
-                //ResetGameOnCLick();
+                ResetGameOnCLick();
                 //UnselectLetter();
             }
         }
@@ -246,8 +292,6 @@ public class PuzzleGameManager : MonoBehaviour
         Debug.Log("Level completed. Total hint points: " + totalHintPoints);
         UpdateHintPointsText();
     }
-
-    
 
 
     public void OnHintButtonClicked()
