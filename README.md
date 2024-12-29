@@ -1,5 +1,6 @@
 Update:
 <br>
+<br>
 <img src="Word Hunt 2D/Recordings/PuzzleImage-1.jpg" width="300"/>
 <br>
 <br>
